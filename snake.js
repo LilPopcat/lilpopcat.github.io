@@ -65,6 +65,10 @@ function update () {
     }
 
     //game over conditions
+    if (snakeX < 0 || snakeX > 0 cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
+      gameOver = true;
+      alert("Game Over");
+    }
 
 
     for (let i = 0; i < snakeBody.length; i++) {
