@@ -87,6 +87,11 @@ function placeFood() {
     foodY = Math.floor(Math.random() * rows) * blockSize;
 }
 
+function showQuestion(id) {
+  document.querySelectorAll('.question').forEach ((e) => e.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+}
+
 function answerCorrect(e) {
   console.log('CORRECT!');
 }

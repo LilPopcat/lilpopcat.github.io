@@ -1,4 +1,17 @@
   body {
-      font-family: 'Courier New', Courier, monospace;
-      text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+  }
+
+  .question {
+    background: white;
+    padding: 1em;
+    width: 450px;
+    height: 100px;
+
+    position: absolute;
+    left: 485px;
+    top: 200px;
+
+    display: none;
   }
