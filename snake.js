@@ -86,3 +86,15 @@ function placeFood() {
     foodX = Math.floor(Math.random() * cols) * blockSize;
     foodY = Math.floor(Math.random() * rows) * blockSize;
 }
+
+function answerCorrect(e) {
+  console.log('CORRECT!');
+}
+
+function answerIncorrect(e) {
+  console.log('INCORRECT');
+}
+
+function winGame() {
+  alert("You won!");
+}
