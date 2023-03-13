@@ -45,37 +45,19 @@ function update () {
     context.fillRect(foodX, foodY, blockSize, blockSize);
 
     if (snakeX == foodX && snakeY == foodY) {
-        snakeBody.push([foodX, foodY])
         placeFood();
     }
 
-    for (let i = snakeBody.length-1; i > 0; i--){
-        snakeBody[i] = snakeBody [i-1];
-    }
-    if (snakeBody.length) {
-        snakeBody[0] = [snakeX, snakeY];
-    }
 
     context.fillStyle="lime";
     snakeX += velocityX * blockSize;
     snakeY += velocityY * blockSize;
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
-    for (let i = 0; i < snakeBody.length; i++) {
-        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
-    }
 
     //game over conditions
     if (snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
         gameOver = true;
         alert("Game Over");
-    }
-
-
-    for (let i = 0; i < snakeBody.length; i++) {
-        if (snakeX == snakeBody[i][0]&& snakeY == snakeBody[i][1]) {
-            gameOver = true;
-            alert("Game Over");
-        }
     }
 }
 
