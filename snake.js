@@ -101,5 +101,5 @@ function answerIncorrect(e) {
 }
 
 function winGame() {
-  alert("You won!");
+  alert("Congratulations! You beat the game!");
 }
