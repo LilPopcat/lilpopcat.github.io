@@ -20,6 +20,7 @@ var foodX;
 var foodY;
 
 var gameOver = false;
+var questionNumber = 1;
 
 window.onload = function() {
     board = document.getElementById("board");
@@ -52,7 +53,8 @@ function update () {
     context.fillRect(foodX, foodY, blockSize, blockSize);
 
     if (snakeX == foodX && snakeY == foodY) {
-        placeFood();
+      pauseGame();
+      showQuestion(`q${questionNumber}`);
     }
 
 
@@ -93,14 +95,19 @@ function placeFood() {
     foodX = Math.floor(Math.random() * cols) * blockSize;
     foodY = Math.floor(Math.random() * rows) * blockSize;
 }
-
-function showQuestion(id) {
+function hideQuestions() {
   document.querySelectorAll('.question').forEach ((e) => e.style.display = 'none');
+}
+function showQuestion(id) {
+  hideQuestions();
   document.getElementById(id).style.display = 'block';
 }
 
 function answerCorrect(e) {
-  console.log('CORRECT!');
+  questionNumber += 1;
+  hideQuestions();
+  placeFood();
+  runGame();
 }
 
 function answerIncorrect(e) {
