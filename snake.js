@@ -111,7 +111,8 @@ function answerCorrect(e) {
 }
 
 function answerIncorrect(e) {
-  console.log('INCORRECT');
+  gameOver = true;
+  alert("Game Over. Nice Try. Refresh to try again.")
 }
 
 function winGame() {
