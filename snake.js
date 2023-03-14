@@ -13,7 +13,7 @@ var snakeY = blockSize * 5;
 var velocityX = 0;
 var velocityY = 0;
 
-
+var intervalId;
 
 //food
 var foodX;
@@ -29,8 +29,15 @@ window.onload = function() {
 
     placeFood();
     document.addEventListener("keyup", changeDirection);
-    // update();
-    setInterval(update, 1000/10); //100 milliseconds
+    runGame();
+}
+
+function runGame() {
+  intervalId = setInterval(update, 1000/10); //100 milliseconds
+}
+
+function pauseGame() {
+  clearInterval(intervalId);
 }
 
 function update () {
