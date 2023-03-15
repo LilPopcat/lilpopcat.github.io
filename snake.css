@@ -4,6 +4,10 @@
     background: no-repeat url('https://i.natgeofe.com/k/a3ff94a6-9670-4b4a-bdbd-c3fb72c2840b/north-dakota-roosevelt-park.jpg');
   }
 
+  canvas {
+    border: 2px solid white;
+  }
+
   .question {
     background: white;
     padding: 1em;
