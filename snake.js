@@ -46,22 +46,16 @@ function update () {
       return;
     }
 
-    context.fillStyle="black";
-    context.fillRect(0, 0, board.width, board.height);
-
-    context.fillStyle="brown";
-    context.fillRect(foodX, foodY, blockSize, blockSize);
+    context.clearRect(snakeX, snakeY, blockSize, blockSize);
+    snakeX += velocityX * blockSize;
+    snakeY += velocityY * blockSize;
+    context.fillStyle="lime";
+    context.fillRect(snakeX, snakeY, blockSize, blockSize);
 
     if (snakeX == foodX && snakeY == foodY) {
       pauseGame();
       showQuestion(`q${questionNumber}`);
     }
-
-
-    context.fillStyle="lime";
-    snakeX += velocityX * blockSize;
-    snakeY += velocityY * blockSize;
-    context.fillRect(snakeX, snakeY, blockSize, blockSize);
 
     //game over conditions
     if (snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
@@ -92,12 +86,27 @@ function changeDirection(e) {
 
 function placeFood() {
   //0-1) "cols -> (0-19.9999) -> (0-19) * 25
-    foodX = Math.floor(Math.random() * cols) * blockSize;
-    foodY = Math.floor(Math.random() * rows) * blockSize;
+  foodX = Math.floor(Math.random() * cols) * blockSize;
+  foodY = Math.floor(Math.random() * rows) * blockSize;
+  drawFood();
 }
+
+function drawFood() {
+  context.fillStyle="white";
+  context.fillRect(foodX, foodY, blockSize, blockSize);
+
+  var img = new Image();
+  img.onload = function() {
+    context.drawImage(img, foodX, foodY, blockSize, blockSize);
+    console.log('OK');
+  }
+  img.src = "bison.png";
+}
+
 function hideQuestions() {
   document.querySelectorAll('.question').forEach ((e) => e.style.display = 'none');
 }
+
 function showQuestion(id) {
   hideQuestions();
   document.getElementById(id).style.display = 'block';

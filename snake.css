@@ -1,7 +1,12 @@
   body {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-    background: no-repeat url('https://i.natgeofe.com/k/a3ff94a6-9670-4b4a-bdbd-c3fb72c2840b/north-dakota-roosevelt-park.jpg');
+    background: no-repeat url('north-dakota-roosevelt-park.jpg');
+  }
+
+  canvas {
+    border: 2px solid white;
+    background: rgb(0,0,0,0.25);
   }
 
   .question {
