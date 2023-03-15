@@ -106,7 +106,7 @@ function showQuestion(id) {
 function answerCorrect(e) {
   questionNumber += 1;
   hideQuestions();
-  alert("Good job! You got the answer correct! Click ok to continue.")
+  alert("Good job! You got the answer correct! Click ok to continue.");
   placeFood();
   runGame();
 }
